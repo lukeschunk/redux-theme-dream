@@ -1,3 +1,5 @@
+import { connect } from "react-redux";
+
 import React, { Component } from "react";
 import { getVerticalPosition, getHorizontalPosition } from "./position-utils";
 
@@ -7,9 +9,9 @@ class BigBoxes extends Component {
 
     return (
       <div>
-        {[1, 1, 1, 1, 1, 1, 1].map(item => (
+        {[1, 1, 1, 1, 1, 1, 1].map((item, index) => (
           <div
-            key={getVerticalPosition()}
+            key={index}
             style={{
               ...styles.box,
               top: getVerticalPosition(),
@@ -26,11 +28,17 @@ class BigBoxes extends Component {
       box: {
         width: 200,
         height: 100,
-        backgroundColor: "#455C7B",
+        backgroundColor: this.props.color,
         position: "absolute"
       }
     };
   };
 }
 
-export default BigBoxes;
+const mapStateToProps = state => {
+  return {
+    color: state.theme.big
+  };
+};
+
+export default connect(mapStateToProps)(BigBoxes);

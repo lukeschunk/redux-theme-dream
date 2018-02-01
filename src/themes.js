@@ -1,23 +1,41 @@
 export const sunset = {
-  1: "#FFBC67",
-  2: "#DA727E",
-  3: "#AC6C82",
-  4: "#685C79",
-  5: "#455C7B"
+  big: "#FFBC67",
+  xl: "#DA727E",
+  medium: "#AC6C82",
+  small: "#685C79",
+  tiny: "#455C7B"
 };
 
 export const aspirin = {
-  1: "#225378",
-  2: "#1595A3",
-  3: "#ACF0F2",
-  4: "#F2FFE3",
-  5: "#EB7F00"
+  big: "#225378",
+  xl: "#1595A3",
+  medium: "#ACF0F2",
+  small: "#F2FFE3",
+  tiny: "#EB7F00"
 };
 
 export const romantic = {
-  1: "#2E112D",
-  2: "#540032",
-  3: "#820333",
-  4: "#C9283E",
-  5: "#F0433A"
+  big: "#2E112D",
+  xl: "#540032",
+  medium: "#820333",
+  small: "#C9283E",
+  tiny: "#F0433A"
 };
+
+export const cool_fix = {
+  big: "#5298F3",
+  xl: "#5BBBF0",
+  medium: "#6BE8F4",
+  small: "#F4E70C",
+  tiny: "#F3F3F5"
+};
+
+export const health = {
+  big: "#BBD1A8",
+  xl: "#9DBF84",
+  medium: "#7FB060",
+  small: "#5FA344",
+  tiny: "#C0C4BF"
+};
+
+export const themes = [sunset, aspirin, cool_fix, romantic, health];

@@ -1,3 +1,5 @@
+import { connect } from "react-redux";
+
 import React, { Component } from "react";
 import { getVerticalPosition, getHorizontalPosition } from "./position-utils";
 
@@ -7,9 +9,9 @@ class ExtraLargeBoxes extends Component {
 
     return (
       <div>
-        {[1, 1, 1].map(item => (
+        {[1, 1, 1].map((item, index) => (
           <div
-            key={getVerticalPosition()}
+            key={index}
             style={{
               ...styles.box,
               top: getVerticalPosition(),
@@ -26,11 +28,17 @@ class ExtraLargeBoxes extends Component {
       box: {
         width: 300,
         height: 200,
-        backgroundColor: "#685C79",
+        backgroundColor: this.props.color,
         position: "absolute"
       }
     };
   };
 }
 
-export default ExtraLargeBoxes;
+const mapStateToProps = state => {
+  return {
+    color: state.theme.xl
+  };
+};
+
+export default connect(mapStateToProps)(ExtraLargeBoxes);

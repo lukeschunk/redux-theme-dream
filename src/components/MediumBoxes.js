@@ -1,3 +1,5 @@
+import { connect } from "react-redux";
+
 import React, { Component } from "react";
 import { getVerticalPosition, getHorizontalPosition } from "./position-utils";
 
@@ -7,9 +9,9 @@ class MediumBoxes extends Component {
 
     return (
       <div>
-        {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map(item => (
+        {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((item, index) => (
           <div
-            key={getVerticalPosition()}
+            key={index}
             style={{
               ...styles.box,
               top: getVerticalPosition(),
@@ -26,11 +28,17 @@ class MediumBoxes extends Component {
       box: {
         width: 100,
         height: 100,
-        backgroundColor: "#AC6C82",
+        backgroundColor: this.props.color,
         position: "absolute"
       }
     };
   };
 }
 
-export default MediumBoxes;
+const mapStateToProps = state => {
+  return {
+    color: state.theme.medium
+  };
+};
+
+export default connect(mapStateToProps)(MediumBoxes);

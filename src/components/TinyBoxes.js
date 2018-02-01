@@ -1,3 +1,5 @@
+import { connect } from "react-redux";
+
 import React, { Component } from "react";
 import { getVerticalPosition, getHorizontalPosition } from "./position-utils";
 
@@ -33,9 +35,9 @@ class TinyBoxes extends Component {
           1,
           1,
           1
-        ].map(item => (
+        ].map((item, index) => (
           <div
-            key={getVerticalPosition()}
+            key={index}
             style={{
               ...styles.box,
               top: getVerticalPosition(),
@@ -52,11 +54,17 @@ class TinyBoxes extends Component {
       box: {
         width: 20,
         height: 20,
-        backgroundColor: "#FFBC67",
+        backgroundColor: this.props.color,
         position: "absolute"
       }
     };
   };
 }
 
-export default TinyBoxes;
+const mapStateToProps = state => {
+  return {
+    color: state.theme.tiny
+  };
+};
+
+export default connect(mapStateToProps)(TinyBoxes);
