@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import keycode from "keycode";
 
 import { getRandomTheme } from "./redux/theme-actions";
@@ -47,14 +46,4 @@ class App extends Component {
   };
 }
 
-const mapStateToProps = state => {
-  return state;
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    getRandomTheme: () => dispatch(getRandomTheme())
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

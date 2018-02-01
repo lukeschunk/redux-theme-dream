@@ -1,5 +1,3 @@
-import { connect } from "react-redux";
-
 import React, { Component } from "react";
 import { getVerticalPosition, getHorizontalPosition } from "./position-utils";
 
@@ -28,17 +26,11 @@ class MediumBoxes extends Component {
       box: {
         width: 100,
         height: 100,
-        backgroundColor: this.props.color,
+        backgroundColor: "#AC6C82",
         position: "absolute"
       }
     };
   };
 }
 
-const mapStateToProps = state => {
-  return {
-    color: state.theme.medium
-  };
-};
-
-export default connect(mapStateToProps)(MediumBoxes);
+export default MediumBoxes;
